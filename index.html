@@ -24,8 +24,379 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+
+				<section>
+					<h2>React Context API</h2>
+					<div>#nativetechnight</div>
+				</section>
+
+				<section>
+					Who Am I?
+					<div class="fragment">
+						<p style="display: flex; justify-content: center; align-items: center;">
+							<span style="padding-right: 1rem;">@LBKinson</span>
+							<a href="https://twitter.com/LBKinson" target="_blank"><img src="img/twitter.png" style="height:2.75rem; border:none; box-shadow:none; background: none;padding-right: 1rem;" /></a>
+							<a href="http://github.com/lbkinson" target="_blank"><img src="img/github.png" style="height:2.75rem; border:none; box-shadow:none; background: none;padding-right: 1rem;" /></a>
+							<a href="https://www.linkedin.com/in/lbkinson" target="_blank"><img src="img/linkedin.png" style="height:2.75rem; border:none; box-shadow:none; background: none;padding-right: 1rem;" /></a>
+						</p>
+					</div>
+					<div class="fragment">
+						<p style="display: flex; justify-content: center; align-items: center;">
+							<a href="http://railsgirls.com/" target="_blank"><img src="img/railsgirls.png" style="height:5rem; border:none; box-shadow:none; background: none;padding-right: 1rem;" /></a>
+							<a href="https://www.girldevelopit.com/chapters/los-angeles" target="_blank"><img src="img/gdi.png" style="height:5rem; border:none; box-shadow:none; background: none;padding-right: 1rem;" /></a>
+						</p>
+					</div>
+					<aside class="notes">
+						My name is Laura and you can find me all over the internet at LBKinson
+						In my non-coding time I love XYZ, XYZ, and hanging out with my pet bunnies
+					</aside>
+				</section>
+
+				<section>
+					What Do I Do?
+					<div class="fragment">
+						<p>
+							<img src="img/fender_logo.jpeg" style="height:8rem; border:none; box-shadow:none; background: none;" />
+						</p>
+					</div>
+					<aside class="notes">
+						I work at Fender<br/>
+						I'm mostly a frontend engineer and work primarily on an app called Fender Play that is a video-based learning platform. It's written in React<br/>
+						Though I do pride myself on being the only person on my team who still pushes for some of our internal tools to stay written in Ember... so you can talk to me about that after this if you want<br />
+						And I also like to teach things like Git, Ruby, and basics of web development for places like Girl Develop It and Rails Girls.
+					</aside>
+				</section>
+
+				<section>
+					What Are We Talking About?
+				</section>
+
+				<section style="padding-top: 0;">
+					<img src="img/1_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+				</section>
+
+				<section style="padding-top: 0;">
+					<img src="img/2_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+				</section>
+
+				<section style="padding-top: 0;">
+					<img src="img/3_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+				</section>
+
+				<section style="padding-top: 0;">
+					<img src="img/4_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+				</section>
+
+				<section style="padding-top: 0;">
+					<img src="img/5_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+				</section>
+
+				<section style="padding-top: 0;">
+					<img src="img/6_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+				</section>
+
+				<section>
+					This is what that code looks like
+					<div style="display: flex;">
+						<div style="width: 50%;">
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// Course.js
+const course = getCourse(id);
+return () {
+  &lt;CourseSidebarComponent
+    lessons={course.lessons}
+    description={course.description}
+    title={course.title}
+    artists={course.artists}
+    albumArt={course.albumArt}
+    type={course.type}
+    instrument={course.instrument}
+    duration={course.duration}
+    level={course.level}
+  /&gt;
+}
+							</code></pre>
+						</div>
+						<div style="width: 50%;">
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// CourseSidebarComponent.js
+const { ... } = this.props;
+return () {
+  &lt;CourseMetaInfoComponent
+    title={title}
+    artists={artists}
+    albumArt={albumArt}
+    type={type}
+    instrument={instrument}
+    duration={duration}
+    level={level}
+  /&gt;
+}
+							</code></pre>
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// CourseMetaInfoComponent.js
+const { ... } = this.props;
+return () {
+  &lt;CourseCardComponent
+    type={type}
+    instrument={instrument}
+    duration={duration}
+    level={level}
+  /&gt;
+}
+							</code></pre>
+						</div>
+					</div>
+					<aside class="notes">
+						So this is what that code looks like <br/>
+						You can see we're passing props
+					</aside>
+				</section>
+
+				<section>
+					Pshh, I would never code like that...
+					<div style="display: flex;">
+						<div style="width: 50%;">
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// Course.js
+const course = getCourse(id);
+return () {
+  &lt;CourseSidebarComponent
+    course={course}
+  /&gt;
+}
+							</code></pre>
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// CourseSidebarComponent.js
+const { course } = this.props;
+return () {
+  &lt;CourseMetaInfoComponent
+    course={course}
+  /&gt;
+}
+							</code></pre>
+						</div>
+						<div style="width: 50%;">
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// CourseMetaInfoComponent.js
+const { course } = this.props;
+return () {
+  &lt;CourseCardComponent
+    course={course}
+  /&gt;
+}
+							</code></pre>
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// CourseCardComponent.js
+const { course } = this.props;
+return () {
+  &lt;div&gt;
+    &lt;p&gt;Course Type: {course.type}&lt;/p&gt;
+    &lt;p&gt;Instrument: {course.instrument}&lt;/p&gt;
+    &lt;p&gt;Time to Finish: {course.duration}&lt;/p&gt;
+    &lt;p&gt;Level: {course.level}&lt;/p&gt;
+  &lt;/div&gt;
+}
+							</code></pre>
+						</div>
+					</div>
+				</section>
+
+				<section style="padding-top: 0;">
+					<img src="img/6_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+				</section>
+
+				<section>
+					Buckets pouring into each other
+				</section>
+
+				<section>
+					When what we need...
+					<div class="fragment">
+						<p>Is this!</p>
+						<img src="img/magic_bucket.jpg" />
+					</div>
+				</section>
+
+				<section>
+					This is where the Context API comes in handy.
+				</section>
+
+				<section>
+					Instead of this:
+					<div style="display: flex;">
+						<div style="width: 50%;">
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// Course.js
+const course = getCourse(id);
+return () {
+  &lt;CourseSidebarComponent
+    course={course}
+  /&gt;
+}
+							</code></pre>
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// CourseSidebarComponent.js
+const { course } = this.props;
+return () {
+  &lt;CourseMetaInfoComponent
+    course={course}
+  /&gt;
+}
+							</code></pre>
+						</div>
+						<div style="width: 50%;">
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// CourseMetaInfoComponent.js
+const { course } = this.props;
+return () {
+  &lt;CourseCardComponent
+    course={course}
+  /&gt;
+}
+							</code></pre>
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// CourseCardComponent.js
+const { course } = this.props;
+return () {
+  &lt;div&gt;
+    &lt;p&gt;Course Type: {course.type}&lt;/p&gt;
+    &lt;p&gt;Instrument: {course.instrument}&lt;/p&gt;
+    &lt;p&gt;Time to Finish: {course.duration}&lt;/p&gt;
+    &lt;p&gt;Level: {course.level}&lt;/p&gt;
+  &lt;/div&gt;
+}
+							</code></pre>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					We get this:
+					<div style="display: flex;">
+						<div style="width: 50%;">
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// Course.js
+const course = getCourse(id);
+<mark>const CourseContext = React.createContext();</mark>
+return () {
+  <mark>&lt;CourseContext.Provider value={{ course }}&gt;</mark>
+    &lt;CourseSidebarComponent /&gt;
+  <mark>&lt;CourseContext.Provider /&gt;</mark>
+}
+							</code></pre>
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// CourseSidebarComponent.js
+return () {
+  &lt;CourseMetaInfoComponent /&gt;
+}
+							</code></pre>
+						</div>
+						<div style="width: 50%;">
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// CourseMetaInfoComponent.js
+return () {
+  &lt;CourseCardComponent /&gt;
+}
+							</code></pre>
+							<pre><code class="hljs js" data-trim data-noescape style="font-size: 1rem;">
+// CourseCardComponent.js
+return () {
+  <mark>&lt;CourseContext.Consumer&gt;</mark>
+    { course =>
+      &lt;p&gt;Course Type: {course.type}&lt;/p&gt;
+      &lt;p&gt;Instrument: {course.instrument}&lt;/p&gt;
+      &lt;p&gt;Time to Finish: {course.duration}&lt;/p&gt;
+      &lt;p&gt;Level: {course.level}&lt;/p&gt;
+    }
+  <mark>&lt;/CourseContext.Consumer&gt;</mark>
+}
+							</code></pre>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					What's happening here?
+					<aside class="notes">
+						The Provider puts the data into Context and Consumer pulls it out
+					</aside>
+				</section>
+
+				<section>
+					30 Seconds on Higher Order Components
+					<div style="display:flex;">
+						<div class="fragment" style="width: 50%;">
+							<p>A Wrapper</p>
+							<img src="img/wrapper.jpg" />
+						</div>
+						<div class="fragment" style="width: 50%;">
+							<p>Not a rapper</p>
+							<img src="img/rapper.jpg" />
+						</div>
+					</div>
+					<aside class="notes">
+						I have a list of resources at the end of my slides on Context and have added a few things regarding Higher Order Components, but if you're new to them, think of them like a wrapper<br/>
+					</aside>
+				</section>
+
+				<section>
+					Where in the world do I use Context?
+					<div class="fragment">
+						<img src="img/context_pcg.gif" style="border:none; box-shadow:none; background: none;" />
+						<p style="font-size: 1rem; color: gray">Borrowed from <a href="https://hackernoon.com/how-to-use-the-new-react-context-api-fce011e7d87" target="_blank">Hackernoon</a> where they have a really great rundown on the basics of Context.</p>
+					</div>
+					<aside class="notes">
+						Where this gets super snazzy is when you have a parent component's context storing local state, a child component updating that state with an action, and a grandchild component displaying it<br />
+						A great part about this, is that both your state and action function incrementing the number can live within the Red component, and the Consumer Higher Order Component can pull the different values out<br />
+						Context can be a great replacement when you don't need the overkill of Redux and just need simple state management
+					</aside>
+				</section>
+
+				<section>
+					Places you may already be using Context
+					<pre><code class="hljs html" data-trim data-noescape style="font-size: 1rem;">
+&lt;IntlProvider locale="en"&gt;
+  &lt;FormattedMessage {message} /&gt;
+&lt;/IntlProvider&gt;
+					</code></pre>
+					<pre><code class="hljs html" data-trim data-noescape style="font-size: 1rem;">
+&lt;ConnectedFlagsProvider&gt;
+  &lt;Flag name="featureFlag"&gt;
+    Feature-flagged content
+  &lt;/Flag&gt;
+&lt;/ConnectedFlagsProvider&gt;
+					</code></pre>
+					<aside class="notes">
+						You might already be using the context api. If you've seen this naming pattern using Provider, there's a chance you're dealing with a higher order component that's taken in a context value
+					</aside>
+				</section>
+
+				<section>
+					Something else??
+				</section>
+
+				<section>
+					<h4 style="color: #bdbdbd;">On Context</h4>
+					<ul style="font-size: 2rem;">
+						<li>How to use the new React context API, <a href="https://hackernoon.com/how-to-use-the-new-react-context-api-fce011e7d87" target="_blank">Hackernoon</a></li>
+						<li>React's New Context API, <a href="https://blog.kentcdodds.com/migrating-to-reacts-new-context-api-b15dc7a31ea0" target="_blank">Kent C. Dodds</a></li>
+						<li>Migrating to React's New Context API, <a href="https://blog.kentcdodds.com/migrating-to-reacts-new-context-api-b15dc7a31ea0" target="_blank">Kent C. Dodds</a></li>
+						<li>The old vs new React Context API, <a href="https://markpollmann.com/react-context/" target="_blank">Mark Pollmann</a></li>
+					</ul>
+					<br /><br />
+					<h4 style="color: #bdbdbd;">On Higher Order Components</h4>
+					<ul style="font-size: 2rem;">
+						<li>Composing Higher-Order Components, <a href="https://medium.com/dailyjs/react-composing-higher-order-components-hocs-3a5288e78f55" target="_blank">Casey Morris</a></li>
+						<li>React Higher Order Components in depth, <a href="https://medium.com/@franleplant/react-higher-order-components-in-depth-cf9032ee6c3e" target="_blank">franleplant</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<p>Thank you!</p>
+					<img src="img/bucket_bear.gif" style="border:none; box-shadow:none; background: none;" />
+				</section>
+
 			</div>
 		</div>
 
@@ -42,7 +413,12 @@
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
+				],
+				controlsTutorial: false,
+				controlsLayout: 'edges',
+				history: true,
+				transition: 'none',
+				width: '100%',
 			});
 		</script>
 	</body>
