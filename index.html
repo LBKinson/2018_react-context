@@ -47,8 +47,9 @@
 						</p>
 					</div>
 					<aside class="notes">
-						My name is Laura and you can find me all over the internet at LBKinson
-						In my non-coding time I love XYZ, XYZ, and hanging out with my pet bunnies
+						My name is Laura and you can find me all over the internet at LBKinson<br/>
+						In my non-coding time I love to go to lots of new places and review them on yelp, to do yoga, and hang out with my pet bunnies<br/>
+						I also like to teach things like Git, Ruby, and basics of web development for places like Girl Develop It and Rails Girls.
 					</aside>
 				</section>
 
@@ -63,36 +64,63 @@
 						I work at Fender<br/>
 						I'm mostly a frontend engineer and work primarily on an app called Fender Play that is a video-based learning platform. It's written in React<br/>
 						Though I do pride myself on being the only person on my team who still pushes for some of our internal tools to stay written in Ember... so you can talk to me about that after this if you want<br />
-						And I also like to teach things like Git, Ruby, and basics of web development for places like Girl Develop It and Rails Girls.
+
 					</aside>
 				</section>
 
 				<section>
-					What Are We Talking About?
+					<h4>What Are We Talking About?</h4>
+					<div class="fragment">
+						<ul style="padding-bottom: 2rem;">
+							<li>Prop drilling</li>
+							<li>Context</li>
+							<li>Provider, Consumer / Higher Order Components</li>
+							<li>Buckets</li>
+						</ul>
+						<img src="img/dog_bucket.gif" style="height: 15rem; border:none; box-shadow:none; background: none;" />
+					</div>
 				</section>
 
 				<section style="padding-top: 0;">
-					<img src="img/1_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+					<img src="img/1_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0; border:none; box-shadow:none; background: none;" />
+					<aside class="notes">
+						Course page
+					</aside>
 				</section>
 
 				<section style="padding-top: 0;">
-					<img src="img/2_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+					<img src="img/2_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0; border:none; box-shadow:none; background: none;" />
+					<aside class="notes">
+						Level 1
+					</aside>
 				</section>
 
 				<section style="padding-top: 0;">
-					<img src="img/3_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+					<img src="img/3_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0; border:none; box-shadow:none; background: none;" />
+					<aside class="notes">
+						Level 2
+					</aside>
 				</section>
 
 				<section style="padding-top: 0;">
-					<img src="img/4_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+					<img src="img/4_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0; border:none; box-shadow:none; background: none;" />
+					<aside class="notes">
+						Level 3
+					</aside>
 				</section>
 
 				<section style="padding-top: 0;">
-					<img src="img/5_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+					<img src="img/5_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0; border:none; box-shadow:none; background: none;" />
+					<aside class="notes">
+						Level 4
+					</aside>
 				</section>
 
 				<section style="padding-top: 0;">
-					<img src="img/6_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+					<img src="img/6_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0; border:none; box-shadow:none; background: none;" />
+					<aside class="notes">
+						Level 5
+					</aside>
 				</section>
 
 				<section>
@@ -148,8 +176,9 @@ return () {
 						</div>
 					</div>
 					<aside class="notes">
-						So this is what that code looks like <br/>
-						You can see we're passing props
+						So this is what that code sort of looks like <br/>
+						You can see we're passing A LOT of props<br/>
+						Too long, wouldn't all fit on this slide<br/>
 					</aside>
 				</section>
 
@@ -203,19 +232,22 @@ return () {
 				</section>
 
 				<section style="padding-top: 0;">
-					<img src="img/6_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0;" />
+					<img src="img/6_page.png" style="height: 45rem; margin-top: 0; margin-bottom: 0; border:none; box-shadow:none; background: none;" />
 				</section>
 
 				<section>
-					Buckets pouring into each other
+					<img src="img/bucket_brigade.gif" style="height:25rem; border:none; box-shadow:none; background: none;" />
 				</section>
 
 				<section>
 					When what we need...
 					<div class="fragment">
 						<p>Is this!</p>
-						<img src="img/magic_bucket.jpg" />
+						<img src="img/magic_bucket.jpg" style="border:none; box-shadow:none; background: none;" />
 					</div>
+					<aside class="notes">
+						This is a real product. It's for hyper-controlled concrete pouring.
+					</aside>
 				</section>
 
 				<section>
@@ -314,12 +346,16 @@ return () {
 							</code></pre>
 						</div>
 					</div>
+					<aside class="notes">
+						Provider and Consumer<br/>
+						call out React.createContext <- available as of React 16.3
+					</aside>
 				</section>
 
 				<section>
 					What's happening here?
 					<aside class="notes">
-						The Provider puts the data into Context and Consumer pulls it out
+						The Provider puts the data into Context and Consumer pulls it out by way of a Higher Order Component
 					</aside>
 				</section>
 
@@ -328,15 +364,17 @@ return () {
 					<div style="display:flex;">
 						<div class="fragment" style="width: 50%;">
 							<p>A Wrapper</p>
-							<img src="img/wrapper.jpg" />
+							<img src="img/wrapper.jpg" style="border:none; box-shadow:none; background: none;" />
 						</div>
 						<div class="fragment" style="width: 50%;">
 							<p>Not a rapper</p>
-							<img src="img/rapper.jpg" />
+							<img src="img/rapper.jpg" style="border:none; box-shadow:none; background: none;" />
 						</div>
 					</div>
 					<aside class="notes">
 						I have a list of resources at the end of my slides on Context and have added a few things regarding Higher Order Components, but if you're new to them, think of them like a wrapper<br/>
+						A higher order component is a function that takes a component and returns a new component.<br/>
+						Generally they're used to abstract some shared logic. In the case of context that logic is the Provider and Consumer. Wrap your parent component with a Provider, the HOC returns a contextualized parent. Wrap your child with a Consumer, the HOC returns that context.
 					</aside>
 				</section>
 
@@ -373,7 +411,29 @@ return () {
 				</section>
 
 				<section>
-					Something else??
+					Places you may already be using Context
+					<pre><code class="hljs html" data-trim data-noescape style="font-size: 1rem;">
+&lt;ThemeProvider&gt;
+  {theme => &lt;div style={styles[theme]}&gt;{theme}&lt;/div&gt;}
+&lt;/ThemeProvider&gt;
+					</code></pre>
+					<pre><code class="hljs html" data-trim data-noescape style="font-size: 1rem;">
+const initialState = {
+  counter: {
+    count: 10
+  }
+}
+
+const App = () => (
+  &lt;Provider initialState={initialState}&gt;
+    ...
+  &lt;/Provider&gt;
+)
+					</code></pre>
+					<aside class="notes">
+						Themeing Context is a biggie in the hello world of the new Context API, everyone seems to love clicking buttons and changing 100% of how a page looks.<br/>
+						But this next example should look familiar. At it's very basis, this is redux: stateful management. Imagine you've added a slew of actions that you've also passed into your context object, all of which update your initial state, and that the three dots is where your component waterfall lives. This is redux. There are actually a handful of articles positing that the new context API could replace redux and other state management libraries entirely. Interesting to think about.
+					</aside>
 				</section>
 
 				<section>
@@ -383,6 +443,7 @@ return () {
 						<li>React's New Context API, <a href="https://blog.kentcdodds.com/migrating-to-reacts-new-context-api-b15dc7a31ea0" target="_blank">Kent C. Dodds</a></li>
 						<li>Migrating to React's New Context API, <a href="https://blog.kentcdodds.com/migrating-to-reacts-new-context-api-b15dc7a31ea0" target="_blank">Kent C. Dodds</a></li>
 						<li>The old vs new React Context API, <a href="https://markpollmann.com/react-context/" target="_blank">Mark Pollmann</a></li>
+						<li>Replacing Redux with the new React context API, <a href="https://medium.freecodecamp.org/replacing-redux-with-the-new-react-context-api-8f5d01a00e8c" target="_blank">Didier Franc</a></li>
 					</ul>
 					<br /><br />
 					<h4 style="color: #bdbdbd;">On Higher Order Components</h4>
@@ -395,6 +456,10 @@ return () {
 				<section>
 					<p>Thank you!</p>
 					<img src="img/bucket_bear.gif" style="border:none; box-shadow:none; background: none;" />
+					<aside class="notes">
+						No questions.<br/>
+						Come ask me about context, other react stuff, ember, or bunnies.
+					</aside>
 				</section>
 
 			</div>
